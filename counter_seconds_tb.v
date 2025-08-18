@@ -9,7 +9,7 @@ module counter_seconds_tb;
   reg down;
   wire [3:0] second_unit;
   wire [3:0] second_ten;
-  wire tick_second;
+  wire tick_minute;
 
   counter_seconds cnt_sec (
     .clk(clk),
@@ -19,7 +19,7 @@ module counter_seconds_tb;
     .down(down),
     .second_unit(second_unit),
     .second_ten(second_ten),
-    .tick_second(tick_second)
+    .tick_minute(tick_minute)
   );
 
   initial begin

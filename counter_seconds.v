@@ -6,14 +6,14 @@ module counter_seconds (
   input down, 
   output reg [3:0] second_unit,
   output reg [3:0] second_ten,
-  output reg tick_second
+  output reg tick_minute 
 );
 
   always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
       second_unit <= 4'd0;
       second_ten <= 4'd0;
-      tick_second <= 0;
+      tick_minute <= 0;
     end  
     else begin
       if (mode_second) begin
@@ -21,16 +21,16 @@ module counter_seconds (
           second_unit <= 4'b0000;
           if (second_ten == 4'd5) begin
             second_ten <= 4'd0;
-            tick_second <= 1'b1;
+            tick_minute <= 1'b1;
           end
           else begin
             second_ten <= second_ten + 1'b1;
-            tick_second <= 0;
+            tick_minute <= 0;
           end
         end
         else begin
           second_unit <= second_unit + 1'b1;
-          tick_second <= 1'b0;
+          tick_minute <= 1'b0;
         end
       end
       else begin
