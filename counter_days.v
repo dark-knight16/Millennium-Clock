@@ -6,6 +6,9 @@ module counter_days (
     input down,
     input tick_day,
     input [5:0] max_days,
+	 output ok
 );
+
+    assign ok = rst_n; 
 
 endmodule 
