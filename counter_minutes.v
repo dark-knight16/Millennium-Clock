@@ -12,7 +12,7 @@ module counter_minutes (
 
   always @(posedge clk or negedge rst_n) begin
     casex ({rst_n, mode_minute})
-    2'b0x: begin
+    2'b0?: begin
         minute_unit <= 4'b0000;
         minute_ten <= 4'b0000;
         tick_hour <= 1'b0;
