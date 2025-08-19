@@ -71,9 +71,13 @@ module counter_months (
                             month_ten <= 4'd1;
                         end
                         else begin
-                            month_unit <= 4'd9;
-                            month_ten <= month_ten - 1'b1;
+                            month_unit <= 4'd0;
+                            month_ten <= 4'd1;
                         end
+                    end
+                    else if (month_unit == 4'd0) begin
+                        month_unit <= 4'd9;
+                        month_ten <= 4'd0;
                     end
                     else begin
                         month_unit <= month_unit - 1'b1;
